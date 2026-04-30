@@ -5,7 +5,7 @@ import { listResource } from "../../api/content.api";
 import EmptyState from "../../components/ui/EmptyState";
 import ErrorState from "../../components/ui/ErrorState";
 import LoadingState from "../../components/ui/LoadingState";
-import { interviewRoadmap } from "../../data/interviewRoadmap";
+import { findRoadmapSubjectByName, interviewRoadmap } from "../../data/interviewRoadmap";
 import { getErrorMessage } from "../../utils/formatters";
 
 const statConfig = [
@@ -101,7 +101,7 @@ const Dashboard = () => {
             {recentSubjects.map((subject) => (
               <Link
                 key={subject._id}
-                to={`/subjects/${subject._id}`}
+                to={`/subjects/${findRoadmapSubjectByName(subject.name)?._id || subject._id}`}
                 className="rounded-md border border-line p-4 transition hover:border-brand hover:bg-blue-50"
               >
                 <p className="font-semibold text-ink">{subject.name}</p>

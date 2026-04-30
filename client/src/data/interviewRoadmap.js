@@ -68,5 +68,8 @@ export const interviewRoadmap = [
 
 export const findRoadmapSubject = (id) => interviewRoadmap.find((subject) => subject._id === id);
 
+export const findRoadmapSubjectByName = (name) =>
+  interviewRoadmap.find((subject) => subject.name.toLowerCase() === String(name || "").toLowerCase());
+
 export const buildTeachingPrompt = ({ subject, topic, subtopic }) =>
   `Teach me "${subtopic}" under "${topic}" in ${subject} for product-company technical interviews. Explain the core idea, why it matters, all key concepts, important terms, real examples, edge cases, common mistakes, interviewer follow-ups, and 5 practice questions. Keep it concise, beginner-friendly, and interview-depth, ending with a short revision checklist.`;
