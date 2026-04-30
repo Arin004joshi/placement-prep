@@ -54,10 +54,10 @@ const RoadmapSubject = ({ subject, compact = false }) => {
   };
 
   return (
-    <article className="rounded-md border border-line bg-white p-5 shadow-sm">
+    <article className="rounded-md border border-line bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-bold text-ink">{subject.name}</h2>
+          <h2 className="text-xl font-bold text-ink dark:text-slate-100">{subject.name}</h2>
           <p className="mt-1 max-w-3xl text-sm leading-6 text-muted">{subject.description}</p>
           <p className="mt-2 text-sm font-semibold text-accent">
             {completedCount}/{totalSubtopics} subtopics complete
@@ -72,8 +72,8 @@ const RoadmapSubject = ({ subject, compact = false }) => {
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         {subject.topics.map(([topic, subtopics]) => (
-          <section key={topic} className="rounded-md border border-line bg-slate-50 p-4">
-            <h3 className="font-semibold text-ink">{topic}</h3>
+          <section key={topic} className="rounded-md border border-line bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+            <h3 className="font-semibold text-ink dark:text-slate-100">{topic}</h3>
             <div className="mt-3 space-y-2">
               {subtopics.map((subtopic) => {
                 const completionKey = getCompletionKey({ subject: subject.name, topic, subtopic });
@@ -83,7 +83,9 @@ const RoadmapSubject = ({ subject, compact = false }) => {
                   <div
                     key={subtopic}
                     className={`flex items-center justify-between gap-3 rounded-md border px-3 py-2 transition ${
-                      isComplete ? "border-green-200 bg-green-50" : "border-line bg-white"
+                      isComplete
+                        ? "border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950"
+                        : "border-line bg-white dark:border-slate-800 dark:bg-slate-900"
                     }`}
                   >
                     <label className="flex min-w-0 flex-1 cursor-pointer items-center gap-3">
@@ -95,7 +97,9 @@ const RoadmapSubject = ({ subject, compact = false }) => {
                       />
                       <span
                         className={`truncate text-sm font-medium ${
-                          isComplete ? "text-green-800 line-through decoration-green-700" : "text-ink"
+                          isComplete
+                            ? "text-green-800 line-through decoration-green-700 dark:text-green-300 dark:decoration-green-400"
+                            : "text-ink dark:text-slate-100"
                         }`}
                       >
                         {subtopic}

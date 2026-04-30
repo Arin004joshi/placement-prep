@@ -1348,6 +1348,8 @@ Phase 2 turns the platform from content management into a usable preparation sys
 - [x] Add per-subtopic copy buttons for AI teaching prompts.
 - [x] Add self-managed completion checkboxes for roadmap subtopics.
 - [x] Persist roadmap completion state in browser local storage.
+- [x] Add persistent global light/dark theme toggle.
+- [x] Add dark-mode styles across shared layout, forms, roadmap, dashboard, practice, progress, revision, topic, question, and admin pages.
 - [ ] Add mastery indicators on subject/topic screens.
 
 ### Phase 2 Completion Criteria

@@ -31,7 +31,7 @@ const Progress = () => {
   return (
     <div className="space-y-6">
       <section>
-        <h1 className="text-2xl font-bold text-ink">Progress</h1>
+        <h1 className="text-2xl font-bold text-ink dark:text-slate-100">Progress</h1>
         <p className="mt-1 text-sm text-muted">Practice accuracy, mastery snapshots, and weak areas.</p>
       </section>
 
@@ -39,26 +39,26 @@ const Progress = () => {
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
-            <div key={stat.label} className="rounded-md border border-line bg-white p-5">
+            <div key={stat.label} className="rounded-md border border-line bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-muted">{stat.label}</p>
                 <Icon className="h-5 w-5 text-brand" aria-hidden="true" />
               </div>
-              <p className="mt-3 text-3xl font-bold text-ink">{stat.value}</p>
+              <p className="mt-3 text-3xl font-bold text-ink dark:text-slate-100">{stat.value}</p>
             </div>
           );
         })}
       </section>
 
       <section className="grid gap-5 lg:grid-cols-2">
-        <div className="rounded-md border border-line bg-white p-5">
-          <h2 className="text-lg font-semibold text-ink">Mastery</h2>
+        <div className="rounded-md border border-line bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+          <h2 className="text-lg font-semibold text-ink dark:text-slate-100">Mastery</h2>
           {summary.mastery?.length ? (
             <div className="mt-4 space-y-3">
               {summary.mastery.map((item) => (
-                <div key={item._id} className="rounded-md bg-slate-50 p-3">
+                <div key={item._id} className="rounded-md bg-slate-50 p-3 dark:bg-slate-950">
                   <div className="flex justify-between gap-3 text-sm">
-                    <span className="font-semibold text-ink">{titleCase(item.masteryLevel)}</span>
+                    <span className="font-semibold text-ink dark:text-slate-100">{titleCase(item.masteryLevel)}</span>
                     <span className="text-muted">{item.accuracy}% accuracy</span>
                   </div>
                   <div className="mt-2 h-2 rounded-full bg-slate-200">
@@ -72,8 +72,8 @@ const Progress = () => {
           )}
         </div>
 
-        <div className="rounded-md border border-line bg-white p-5">
-          <h2 className="text-lg font-semibold text-ink">Weak Areas</h2>
+        <div className="rounded-md border border-line bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
+          <h2 className="text-lg font-semibold text-ink dark:text-slate-100">Weak Areas</h2>
           {summary.weakAreas?.length ? (
             <div className="mt-4 space-y-2">
               {summary.weakAreas.map((area) => (

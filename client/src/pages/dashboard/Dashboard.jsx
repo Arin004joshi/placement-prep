@@ -63,7 +63,7 @@ const Dashboard = () => {
   return (
     <div className="space-y-6">
       <section>
-        <h1 className="text-2xl font-bold text-ink">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-ink dark:text-slate-100">Dashboard</h1>
         <p className="mt-1 text-sm text-muted">Content coverage and starting points for Phase 1.</p>
       </section>
 
@@ -72,21 +72,21 @@ const Dashboard = () => {
           const Icon = item.icon;
 
           return (
-            <div key={item.key} className="rounded-md border border-line bg-white p-5 shadow-sm">
+            <div key={item.key} className="rounded-md border border-line bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900">
               <div className="flex items-center justify-between">
                 <p className="text-sm font-medium text-muted">{item.label}</p>
                 <Icon className="h-5 w-5 text-brand" aria-hidden="true" />
               </div>
-              <p className="mt-3 text-3xl font-bold text-ink">{stats[item.key]}</p>
+              <p className="mt-3 text-3xl font-bold text-ink dark:text-slate-100">{stats[item.key]}</p>
             </div>
           );
         })}
       </section>
 
-      <section className="rounded-md border border-line bg-white p-5">
+      <section className="rounded-md border border-line bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center justify-between">
           <div>
-            <h2 className="text-lg font-semibold text-ink">Subjects</h2>
+            <h2 className="text-lg font-semibold text-ink dark:text-slate-100">Subjects</h2>
             <p className="text-sm text-muted">Browse the available learning areas.</p>
           </div>
           <Link className="text-sm font-semibold text-brand hover:text-blue-700" to="/subjects">
@@ -102,9 +102,9 @@ const Dashboard = () => {
               <Link
                 key={subject._id}
                 to={`/subjects/${findRoadmapSubjectByName(subject.name)?._id || subject._id}`}
-                className="rounded-md border border-line p-4 transition hover:border-brand hover:bg-blue-50"
+                className="rounded-md border border-line p-4 transition hover:border-brand hover:bg-blue-50 dark:border-slate-800 dark:hover:bg-slate-800"
               >
-                <p className="font-semibold text-ink">{subject.name}</p>
+                <p className="font-semibold text-ink dark:text-slate-100">{subject.name}</p>
                 <p className="mt-1 line-clamp-2 text-sm text-muted">{subject.description || "No description yet."}</p>
               </Link>
             ))}

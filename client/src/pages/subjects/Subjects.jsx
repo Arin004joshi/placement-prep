@@ -27,7 +27,7 @@ const Subjects = () => {
   return (
     <div className="space-y-6">
       <section>
-        <h1 className="text-2xl font-bold text-ink">Interview Readiness Roadmap</h1>
+        <h1 className="text-2xl font-bold text-ink dark:text-slate-100">Interview Readiness Roadmap</h1>
         <p className="mt-1 text-sm text-muted">
           All must-read topics and subtopics for DBMS, OOPs, OS, and MERN interviews.
         </p>

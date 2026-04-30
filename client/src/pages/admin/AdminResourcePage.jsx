@@ -172,9 +172,9 @@ const AdminResourcePage = ({ title, resource, fields, columns, lookups = [] }) =
     if (field.type === "textarea" || field.type === "json") {
       return (
         <label key={field.name} className="block">
-          <span className="mb-1 block text-sm font-medium text-ink">{field.label}</span>
+          <span className="mb-1 block text-sm font-medium text-ink dark:text-slate-100">{field.label}</span>
           <textarea
-            className="min-h-28 w-full rounded-md border border-line bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-blue-100"
+            className="min-h-28 w-full rounded-md border border-line bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand focus:ring-4 focus:ring-blue-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:ring-blue-950"
             value={value}
             onChange={onChange}
             required={field.required}
@@ -218,15 +218,15 @@ const AdminResourcePage = ({ title, resource, fields, columns, lookups = [] }) =
   return (
     <div className="space-y-6">
       <section>
-        <h1 className="text-2xl font-bold text-ink">{title}</h1>
+        <h1 className="text-2xl font-bold text-ink dark:text-slate-100">{title}</h1>
         <p className="mt-1 text-sm text-muted">Create and maintain learning content for Phase 1.</p>
       </section>
 
       {error ? <ErrorState message={error} /> : null}
 
-      <section className="rounded-md border border-line bg-white p-5">
+      <section className="rounded-md border border-line bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 className="text-lg font-semibold text-ink">{editingId ? "Edit item" : "Create item"}</h2>
+          <h2 className="text-lg font-semibold text-ink dark:text-slate-100">{editingId ? "Edit item" : "Create item"}</h2>
           {editingId ? (
             <Button variant="secondary" onClick={resetForm}>
               <X className="h-4 w-4" aria-hidden="true" />
@@ -246,13 +246,13 @@ const AdminResourcePage = ({ title, resource, fields, columns, lookups = [] }) =
         </form>
       </section>
 
-      <section className="rounded-md border border-line bg-white">
+      <section className="rounded-md border border-line bg-white dark:border-slate-800 dark:bg-slate-900">
         {items.length === 0 ? (
           <EmptyState title={`No ${title.toLowerCase()} yet`} message="Created items will appear here." />
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full min-w-[760px] text-left text-sm">
-              <thead className="border-b border-line bg-slate-50 text-xs uppercase tracking-wide text-muted">
+              <thead className="border-b border-line bg-slate-50 text-xs uppercase tracking-wide text-muted dark:border-slate-800 dark:bg-slate-950">
                 <tr>
                   {columns.map((column) => (
                     <th key={column.key} className="px-4 py-3 font-semibold">
@@ -264,9 +264,9 @@ const AdminResourcePage = ({ title, resource, fields, columns, lookups = [] }) =
               </thead>
               <tbody>
                 {items.map((item) => (
-                  <tr key={item._id} className="border-b border-line last:border-b-0">
+                  <tr key={item._id} className="border-b border-line last:border-b-0 dark:border-slate-800">
                     {columns.map((column) => (
-                      <td key={column.key} className="max-w-xs px-4 py-3 text-ink">
+                      <td key={column.key} className="max-w-xs px-4 py-3 text-ink dark:text-slate-100">
                         <span className="line-clamp-2">{renderCell(item, column)}</span>
                       </td>
                     ))}

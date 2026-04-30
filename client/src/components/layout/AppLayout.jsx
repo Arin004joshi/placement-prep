@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
 const AppLayout = () => (
-  <div className="min-h-screen bg-slate-50">
+  <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
     <Sidebar />
     <div className="lg:pl-64">
       <Topbar />

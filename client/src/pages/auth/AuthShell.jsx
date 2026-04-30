@@ -1,7 +1,7 @@
 import { BookOpenCheck } from "lucide-react";
 
 const AuthShell = ({ children, title, subtitle }) => (
-  <main className="min-h-screen bg-slate-50">
+  <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
     <div className="grid min-h-screen lg:grid-cols-[1fr_520px]">
       <section className="hidden bg-ink px-10 py-12 text-white lg:flex lg:flex-col lg:justify-between">
         <div>
@@ -26,9 +26,9 @@ const AuthShell = ({ children, title, subtitle }) => (
       </section>
 
       <section className="flex items-center justify-center px-4 py-10">
-        <div className="w-full max-w-md rounded-md border border-line bg-white p-6 shadow-soft">
+        <div className="w-full max-w-md rounded-md border border-line bg-white p-6 shadow-soft dark:border-slate-800 dark:bg-slate-900">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-ink">{title}</h1>
+            <h1 className="text-2xl font-bold text-ink dark:text-slate-100">{title}</h1>
             <p className="mt-1 text-sm text-muted">{subtitle}</p>
           </div>
           {children}

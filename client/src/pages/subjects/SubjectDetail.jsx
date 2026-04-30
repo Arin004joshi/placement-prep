@@ -72,21 +72,21 @@ const SubjectDetail = () => {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-md border border-line bg-white p-5">
+      <section className="rounded-md border border-line bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
         <p className="text-sm font-semibold uppercase tracking-wide text-brand">Subject</p>
-        <h1 className="mt-2 text-2xl font-bold text-ink">{subject?.name}</h1>
+        <h1 className="mt-2 text-2xl font-bold text-ink dark:text-slate-100">{subject?.name}</h1>
         <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">{subject?.description || "No description yet."}</p>
       </section>
 
       <section>
-        <h2 className="mb-3 text-lg font-semibold text-ink">Topics</h2>
+        <h2 className="mb-3 text-lg font-semibold text-ink dark:text-slate-100">Topics</h2>
         {topics.length === 0 ? (
           <EmptyState title="No topics yet" message="Run the seed script or create topics from the admin area." />
         ) : (
           <div className="grid gap-3 md:grid-cols-2">
             {topics.map((topic) => (
-              <div key={topic._id} className="rounded-md border border-line bg-white p-4">
-                <Link className="font-semibold text-ink hover:text-brand" to={`/topics/${topic._id}`}>
+              <div key={topic._id} className="rounded-md border border-line bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+                <Link className="font-semibold text-ink hover:text-brand dark:text-slate-100" to={`/topics/${topic._id}`}>
                   {topic.title}
                 </Link>
                 <p className="mt-2 line-clamp-2 text-sm text-muted">{topic.shortTheory || "No theory summary yet."}</p>
@@ -96,10 +96,10 @@ const SubjectDetail = () => {
                     .map((subtopic) => (
                       <div
                         key={subtopic._id}
-                        className="flex items-start justify-between gap-3 rounded-md border border-line bg-white px-3 py-2"
+                        className="flex items-start justify-between gap-3 rounded-md border border-line bg-white px-3 py-2 dark:border-slate-800 dark:bg-slate-950"
                       >
                         <div>
-                          <p className="text-sm font-semibold text-ink">{subtopic.title}</p>
+                          <p className="text-sm font-semibold text-ink dark:text-slate-100">{subtopic.title}</p>
                           <p className="mt-1 line-clamp-2 text-xs leading-5 text-muted">
                             {subtopic.shortTheory || "No subtopic theory yet."}
                           </p>

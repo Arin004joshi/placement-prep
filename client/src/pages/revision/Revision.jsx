@@ -32,7 +32,7 @@ const Revision = () => {
     <div className="space-y-6">
       <section className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-ink">Revision Mode</h1>
+          <h1 className="text-2xl font-bold text-ink dark:text-slate-100">Revision Mode</h1>
           <p className="mt-1 text-sm text-muted">Questions due from weak or recently missed concepts.</p>
         </div>
         <Button variant="secondary" onClick={load}>
@@ -46,7 +46,7 @@ const Revision = () => {
       ) : (
         <div className="grid gap-3">
           {questions.map((question) => (
-            <article key={question._id} className="rounded-md border border-line bg-white p-4">
+            <article key={question._id} className="rounded-md border border-line bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
               <div className="mb-2 flex flex-wrap gap-2">
                 <span className="rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-muted">
                   {titleCase(question.difficulty)}
@@ -55,7 +55,7 @@ const Revision = () => {
                   {titleCase(question.type)}
                 </span>
               </div>
-              <h2 className="font-semibold text-ink">{question.title || "Revision question"}</h2>
+              <h2 className="font-semibold text-ink dark:text-slate-100">{question.title || "Revision question"}</h2>
               <p className="mt-2 line-clamp-3 text-sm text-muted">{question.prompt}</p>
             </article>
           ))}
