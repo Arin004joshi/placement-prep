@@ -2,11 +2,17 @@ import axios from "axios";
 import { clearToken, getToken } from "../utils/tokenStorage";
 
 const getApiBaseUrl = () => {
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
-  }
-
   const isLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const configuredApiUrl = import.meta.env.VITE_API_URL;
+
+  if (configuredApiUrl) {
+    const configuredApiHost = new URL(configuredApiUrl).hostname;
+    const configuredApiIsLocalhost = ["localhost", "127.0.0.1"].includes(configuredApiHost);
+
+    if (isLocalhost || !configuredApiIsLocalhost) {
+      return configuredApiUrl;
+    }
+  }
 
   return isLocalhost
     ? "http://localhost:5000/api"
