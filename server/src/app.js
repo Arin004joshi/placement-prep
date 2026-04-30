@@ -13,11 +13,15 @@ const practiceRoutes = require("./routes/practice.routes");
 
 const app = express();
 
+const isAllowedOrigin = (origin) =>
+  env.clientOrigins.includes(origin) ||
+  env.clientOriginPatterns.some((pattern) => pattern.test(origin));
+
 app.use(helmet());
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || env.clientOrigins.includes(origin)) {
+      if (!origin || isAllowedOrigin(origin)) {
         callback(null, true);
         return;
       }

@@ -16,6 +16,8 @@ const defaultClientOrigins = [
   "https://placement-prep-mu.vercel.app"
 ];
 
+const defaultClientOriginPatterns = [/^https:\/\/[a-z0-9-]+\.vercel\.app$/i];
+
 const configuredClientOrigins = (process.env.CLIENT_ORIGIN || "")
   .split(",")
   .map((origin) => origin.trim())
@@ -28,6 +30,7 @@ const env = {
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || "7d",
   clientOrigins: [...new Set([...defaultClientOrigins, ...configuredClientOrigins])],
+  clientOriginPatterns: defaultClientOriginPatterns,
   rateLimitWindowMs: Number(process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000),
   rateLimitMax: Number(process.env.RATE_LIMIT_MAX || 100)
 };
