@@ -35,6 +35,32 @@ if (env.nodeEnv !== "test") {
   app.use(morgan("dev"));
 }
 
+app.get("/", (_req, res) => {
+  res.json({
+    success: true,
+    service: "Interview Prep API",
+    status: "running",
+    health: "/api/health",
+    auth: {
+      signup: "/api/auth/signup",
+      login: "/api/auth/login",
+      me: "/api/auth/me"
+    },
+    content: {
+      subjects: "/api/subjects",
+      topics: "/api/topics",
+      subtopics: "/api/subtopics",
+      questions: "/api/questions"
+    },
+    practice: {
+      questions: "/api/practice/questions",
+      revision: "/api/revision/questions",
+      attempts: "/api/attempts",
+      progress: "/api/progress/summary"
+    }
+  });
+});
+
 app.use("/api", apiLimiter);
 app.use("/api/health", healthRoutes);
 app.use("/api/auth", authRoutes);

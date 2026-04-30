@@ -55,7 +55,7 @@ const errorHandler = (error, _req, res, _next) => {
     success: false,
     message,
     details,
-    stack: process.env.NODE_ENV === "production" ? undefined : error.stack
+    stack: process.env.NODE_ENV === "development" ? error.stack : undefined
   });
 };
 
