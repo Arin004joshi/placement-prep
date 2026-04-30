@@ -1,8 +1,20 @@
 import axios from "axios";
 import { clearToken, getToken } from "../utils/tokenStorage";
 
+const getApiBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+
+  const isLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+  return isLocalhost
+    ? "http://localhost:5000/api"
+    : "https://placement-prep-zq6u.onrender.com/api";
+};
+
 const http = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
+  baseURL: getApiBaseUrl(),
   timeout: 12000
 });
 
